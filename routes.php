@@ -2,23 +2,15 @@
 // Connecting to db
 require_once '../app/Database.php';
 
-// Loading models
-require_once '../app/Models/User.php';  // Corrected the path for consistency with others
-require_once '../app/Models/Account.php';
-require_once '../app/Models/EditUserModel.php';
-
-// Loading controllers
-require_once '../app/Controllers/AdminController.php';
-require_once '../app/Controllers/LoginController.php';
-require_once '../app/Controllers/RegisterController.php';
-require_once '../app/Controllers/EditUserController.php';
-require_once '../app/Controllers/AvatarController.php';
-
-// Loading helpers
-require_once '../app/Helpers/auth.php';
+require_once '../app/loader.php';
 
 // Loading the router
-require_once 'router.php';  
+require_once 'router.php';
+
+// Loading models, controllers, and helpers
+Loader::loadModels();
+Loader::loadControllers();
+Loader::loadHelpers();
 
 // Initialize the database and models
 $db = Database::getInstance()->getConnection();
