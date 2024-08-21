@@ -1,0 +1,19 @@
+{
+    "name": "db/www",
+    "description": "Dashboard",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "app/Controllers/",
+            "App\\Views\\": "app/Views/"
+        }
+    },
+    "authors": [
+        {
+            "name": "N"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

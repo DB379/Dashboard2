@@ -1,0 +1,765 @@
+:root {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --sidebar-background: #1f1f1f;
+    --sidebar-link-color: #bbbbbb;
+    --sidebar-link-active-background: #4caf50;
+    --sidebar-link-active-color: white;
+    --button-color: #3a3a3a;
+    --color1: #2e2e2e;
+    --color2: #398e3d;
+    --color3: #757575;
+    --color4: #616161;
+    --color5: #424242;
+    --button-hover: #398e3d;
+    --button-hover1: #505050;
+    --button-hover2: #adbe0d;
+}
+
+[data-theme='light'] {
+    --background-color: #ffffff;
+    --text-color: #212121;
+    --sidebar-background: #f1f1f1;
+    --sidebar-link-color: #424242;
+    --sidebar-link-active-background: #398e3d;
+    --sidebar-link-active-color: white;
+    --button-color: #e0e0e0;
+    --button-hover: #398e3d;
+    --button-color1: #f5f5f5;
+    --button-hover1: #d5d5d5;
+    --button-hover2: #adbe0d;
+    --color1: #fafafa;
+    --color2: #8bc34a;
+    --color3: #9e9e9e;
+    --color4: #bdbdbd;
+    --color5: #757575;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+.content {
+    flex-grow: 1;
+    padding: 25px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Container and Sidebar */
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+    background-color: var(--sidebar-background);
+    color: var(--text-color);
+    padding: 20px;
+    height: 100vh;
+    overflow: auto;
+}
+
+.sidebar-buttons {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--color5);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.user-avatar,
+.default-avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+}
+
+.default-avatar {
+    background: url('../assets/img/users/default.png') no-repeat center center;
+    background-size: 48px 48px;
+}
+
+.user-info h2 {
+    margin: 0;
+    padding-left: 70px;
+}
+
+.sidebar h2 {
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    flex: 1;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: var(--sidebar-link-color);
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.sidebar ul li a.active {
+    background-color: var(--sidebar-link-active-background);
+    color: var(--sidebar-link-active-color);
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active:hover {
+    background-color: var(--color5);
+}
+
+.sidebar-buttons a.active {
+    background-color: var(--sidebar-link-active-background);
+}
+
+.sidebar-buttons .button:hover {
+    background-color: var(--button-hover);
+}
+
+.sidebar-buttons .button.logout {
+    background-color: var(--button-color);
+}
+
+.sidebar-buttons .button.logout:hover {
+    background-color: var(--button-hover2);
+}
+
+.sidebar-buttons .button {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--button-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+    text-align: center;
+}
+
+/* SETTINGS PAGE */
+
+/* Style for buttons */
+button[name="change_password"],
+button[name="change_email"],
+button[name="dark"],
+button[name="light"] {
+    margin-top: 10px;
+    display: block;
+}
+
+button[name="change_password"],
+button[name="change_email"],
+button[name="dark"],
+button[name="light"] {
+    background-color: var(--sidebar-background);
+    color: var(--color4);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[name="change_password"]:hover,
+button[name="change_email"]:hover,
+button[name="dark"]:hover,
+button[name="light"]:hover {
+    color: white;
+    background-color: var(--button-hover);
+}
+
+/* Style for the 'Avatar button' button */
+button[name="change_avatar"] {
+    background-color: var(--color5);
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[name="change_avatar"]:hover {
+    background-color: var(--color2);
+}
+
+/* Style for error messages */
+.error {
+    font-size: 13px;
+    color: rgb(185, 30, 30);
+    margin-top: 10px;
+    transition: opacity 5s ease-in-out;
+}
+
+/* Style for success messages */
+.success {
+    font-size: 13px;
+    color: rgb(15, 146, 15);
+    margin-top: 10px;
+    transition: opacity 5s ease-in-out;
+}
+
+.fade-out {
+    opacity: 1;
+    transition: opacity 5s ease-in-out;
+}
+
+.fade-out-complete {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Tab Styles */
+.tabs {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+    gap: 5px;
+}
+
+.tab-button {
+    padding: 10px 15px;
+    background-color: var(--sidebar-background);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    text-decoration: none;
+}
+
+.tab-button:hover {
+    background-color: var(--color5);
+}
+
+.tab-button.active {
+    background-color: var(--sidebar-link-active-background);
+    color: var(--sidebar-link-active-color);
+}
+
+.tab-content {
+    display: none;
+    color: #c7c2c2;
+    margin-top: 50px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Styling for form elements */
+.form-group {
+    margin-bottom: 50px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="password"],
+.form-group input[type="email"] {
+    color: var(--color3);
+    background-color: var(--background-color);
+    font-size: 13px;
+    margin-bottom: 10px;
+    width: 250px;
+    height: 30px;
+    padding: 8px;
+    border: 1px solid var(--color1);
+    border-radius: 4px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-group input[type="password"]:focus,
+.form-group input[type="email"]:focus {
+    border-color: var(--color2);
+    outline: none;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--color3);
+}
+
+/* Styling for headings within the tab */
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--color3);
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--color3);
+}
+
+/* Paragraph styling within the tab */
+p {
+    line-height: 20px;
+}
+
+.avatars-form {
+    margin-bottom: 20px;
+}
+
+.activity-table table {
+    width: 500px;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.activity-table th,
+.activity-table td {
+    font-size: 13px;
+    border: 1px solid var(--color5);
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.activity-table th {
+    background-color: var(--color1);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.activity-table tr:nth-child(odd) {
+    background-color: var(--color5);
+}
+
+.activity-table tr:hover {
+    background-color: var(--button-hover1);
+}
+
+.avatar-selection {
+    margin-top: 20px;
+}
+
+.avatars {
+    display: flex;
+    gap: 10px;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.avatar:hover {
+    border-color: var(--sidebar-link-active-background);
+}
+
+.avatar.selected {
+    border-color: var(--color2);
+}
+
+
+/* Theme checkbox */
+.theme-checkbox {
+    margin-left: 175px;
+    --toggle-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 48px;
+    height: 32px;
+    background: -webkit-gradient(linear,
+            left top,
+            right top,
+            color-stop(50%, #efefef),
+            color-stop(50%, #2a2a2a)) no-repeat;
+    background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background-size: 205%;
+    background-position: 0;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 99em;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: -webkit-gradient(linear,
+            left top,
+            right top,
+            color-stop(50%, #efefef),
+            color-stop(50%, #2a2a2a)) no-repeat;
+    background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+    background-size: 205%;
+    background-position: 100%;
+    border-radius: 50%;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+    left: 24px;
+    background-position: 0;
+}
+
+.theme-checkbox:checked {
+    background-position: 100%;
+}
+
+
+#checkbox {
+    display: none;
+}
+
+.toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition-duration: .3s;
+}
+
+.bars {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(253, 255, 243);
+    border-radius: 5px;
+    transition-duration: .3s;
+}
+
+
+#checkbox:checked+.toggle #bar2 {
+    transform: translateY(14px) rotate(60deg);
+    margin-left: 0;
+    transform-origin: right;
+    transition-duration: .3s;
+    z-index: 2;
+}
+
+#checkbox:checked+.toggle #bar1 {
+    transform: translateY(28px) rotate(-60deg);
+    transition-duration: .3s;
+    transform-origin: left;
+    z-index: 1;
+}
+
+#checkbox:checked+.toggle {
+    transform: rotate(-90deg);
+}
+
+#countdown {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 13px;
+    color: #636161;
+}
+
+/* Header style */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E0E0E0;
+}
+
+/* Table styling */
+table {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    width: 600px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #181818;
+    color: #d1d1d1;
+}
+
+table,
+th,
+td {
+    border: 1px solid #121212;
+}
+
+td {
+    font-size: 15px;
+    color: #d1d1d1;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Hover effect on table rows */
+tr:hover {
+    background-color: #1d1d1d;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+th {
+    background-color: #2C2C2C;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Button styling */
+/* Save Button Styles */
+.save-btn {
+    background-color: #333333; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #45a049;
+}
+
+/* Cancel Button Styles */
+.cancel-btn {
+    background-color: #333333; /* Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #45a049;
+}
+
+/* Delete Button Styles */
+.delete-btn {
+    background-color: #333333; /* Orange */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #fb3200;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* When modal is active */
+.modal.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Modal content centered with fixed width of 600px and height auto */
+.modal-content {
+    background-color: #1F1F1F;
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #3F3F3F;
+    width: 450px;
+    height: auto;
+    border-radius: 8px;
+    color: #E0E0E0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%);
+    top: 50%;
+    transition: transform 0.4s ease;
+}
+
+/* Close button styling */
+.close {
+    color: #888;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styling */
+form {
+    margin: 0;
+}
+
+form label {
+    margin-bottom: 10px;
+    display: block;
+    color: #E0E0E0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #2C2C2C;
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #E0E0E0;
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
+/* Button styling */
+button {
+    padding: 8px 15px;
+    background-color: #3A3A3A;
+    color: #E0E0E0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #088540;
+}
+
+/* Save button specific style */
+form button[type="submit"] {
+    width: 130px;
+    background-color: #088540;
+}
+
+form button[type="submit"]:hover {
+    background-color: #066a30;
+}
+
+
+/* Adjustments for alerts or messages */
+.alert {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* Styling for delete message */
+.deleteMessage {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: #d9534f; /* Red color for delete messages */
+
+}
+
+/* Styling for success message */
+.successMessage {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: green; /* Red color for delete messages */
+}
+
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-item a {
+    padding: 5px 10px;
+    border: 1px solid #3d3d3d;
+    color: #333;
+    text-decoration: none;
+}
+
+.page-item.active a {
+    border: 1px solid #05863f;
+    background-color: #1d1d1d;
+    color: #f1f1f1;
+}
+

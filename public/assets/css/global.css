@@ -1,0 +1,191 @@
+/* Reset some default styles */
+body, h2, p, form, input, button, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* General body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+}
+
+/* Container styling */
+.login-container, .register-container {
+    background-color: #272626;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: left;
+}
+
+/* Heading styling */
+.login-container h2, .register-container h2 {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+/* Form input styling */
+.login-container label, .register-container label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    color: #cecece;
+}
+
+.login-container input, .register-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c1b1b;
+    color: #d6d6d6;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    transition: border-color 0.5s ease-in-out;
+}
+
+.login-container input:focus, .register-container input:focus {
+    border: 1px solid #868686;
+    outline: none;
+}
+
+/* Button styling */
+.login-container button, .register-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d1d1d;
+    color: #808080;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.login-container button:hover, .register-container button:hover {
+    background-color: #0e8a14;
+    color: #dbdbdb;
+}
+
+/* Link styling */
+.login-container .register-link, .register-container .login-link {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.login-container a, .register-container a {
+    font-size: 13px;
+    color: #868686;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.login-container a:hover, .register-container a:hover {
+    color: #f1f1f1;
+    text-decoration: none;
+}
+
+/* Error message styling */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #6d2c32;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+
+/* Checkbox container styling */
+.remember-checkbox {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* Hide the default checkbox */
+.remember-checkbox input[type="checkbox"] {
+    display: none;
+}
+.remember-label label {
+    color: #4CAF50; /* Ensuring this is the most specific selector */
+}
+/* Label styling with padding for the custom checkbox image */
+.remember-label {
+    font-size: 13px;
+    position: relative;
+    padding-left: 24px; /* Space for the checkbox image */
+    cursor: pointer; /* Makes the label behave like a clickable button */
+    line-height: 20px; /* Aligns the text vertically with the checkbox image */
+}
+
+/* Custom checkbox image using ::before pseudo-element */
+.remember-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Centers the checkbox vertically */
+    width: 20px; /* Width of the checkbox image */
+    height: 20px; /* Height of the checkbox image */
+    background-image: url('../img/website/checkbox.png'); /* Default image for the unchecked state */
+    background-size: cover; /* Ensures the image covers the area */
+}
+
+/* Change the background image when the checkbox is checked */
+#remember_me:checked + .remember-label::before {
+    transition: background-image 0.3s ease-in-out;
+    background-image: url('../img/website/checked.png');
+}
+
+
+
+
+
+ /* Styling for the countdown display */
+ #countdown {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #e0e0e0;
+}
+
+/* Media Queries for phone view */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+        height: auto;
+    }
+
+    .login-container, .register-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .login-container input, .register-container input {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .login-container button, .register-container button {
+        padding: 8px;
+    }
+}

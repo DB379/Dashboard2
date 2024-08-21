@@ -1,0 +1,235 @@
+/* General body styles */
+
+/* Header style */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #E0E0E0;
+}
+
+/* Table styling */
+table {
+    font-family: Roboto;
+    font-weight: 400;
+    width: 600px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #181818;
+    color: #d1d1d1;
+}
+
+table,
+th,
+td {
+    border: 1px solid #121212;
+}
+
+td {
+    font-size: 15px;
+    color: #d1d1d1;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+th {
+    background-color: #2C2C2C;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: left;
+}
+
+/* Button styling */
+/* Save Button Styles */
+.save-btn {
+    background-color: #333333; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #45a049;
+}
+
+/* Cancel Button Styles */
+.cancel-btn {
+    background-color: #333333; /* Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #45a049;
+}
+
+/* Delete Button Styles */
+.delete-btn {
+    background-color: #333333; /* Orange */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #fb3200;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* When modal is active */
+.modal.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Modal content centered with fixed width of 600px and height auto */
+.modal-content {
+    background-color: #1F1F1F;
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #3F3F3F;
+    width: 450px;
+    height: auto;
+    border-radius: 8px;
+    color: #E0E0E0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50%);
+    top: 50%;
+    transition: transform 0.4s ease;
+}
+
+/* Close button styling */
+.close {
+    color: #888;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form styling */
+form {
+    margin: 0;
+}
+
+form label {
+    margin-bottom: 10px;
+    display: block;
+    color: #E0E0E0;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #2C2C2C;
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #E0E0E0;
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
+/* Button styling */
+button {
+    padding: 8px 15px;
+    background-color: #3A3A3A;
+    color: #E0E0E0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: #088540;
+}
+
+/* Save button specific style */
+form button[type="submit"] {
+    width: 130px;
+    background-color: #088540;
+}
+
+form button[type="submit"]:hover {
+    background-color: #066a30;
+}
+
+
+/* Adjustments for alerts or messages */
+.alert {
+    color: #E0E0E0;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-item a {
+    padding: 5px 10px;
+    border: 1px solid #3d3d3d;
+    color: #333;
+    text-decoration: none;
+}
+
+.page-item.active a {
+    border: 1px solid #05863f;
+    background-color: #1d1d1d;
+    color: #f1f1f1;
+}
+
+#312e2e #121212
